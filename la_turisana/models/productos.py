@@ -28,11 +28,6 @@ class Productos(models.Model):
 
     @api.multi
     def write(self, vals):
-        # Esto seria en cualquier otro lado, en elwrite seria distinto porque los datos que quieres vienen en la variable vals
-         if self.temporada == 'Verano':
-             self.fecha_inicio = '21/6/2021'
-             self.fecha_fin = '21/6/2021'
-         elif self.temporada == 'Invierno':
         _logger.info(vals)
         # Vals es un dictionario, si hacemos un get nos devuelve el campo si se ha modificado, si no devuelve false y no entra en el if
         if vals.get('temporada'):
