@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+    <record id="productos_form" model="ir.ui.view">
+        <field name="name">productos.turisana.view.form</field>
+        <field name="model">productos.turisana</field>
+        <field name="arch" type="xml">
+            <form string="Course Form">
+                <sheet>
+                    <group>
+                        <field name="name"></field>
+                        <field name="descripcion"></field>
+                        <field name="temporada"></field>
+                        <field name="imagen_producto"></field>
+                        <field name="fecha_inicio"></field>
+                        <field name="fecha_fin"></field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>  
+    
+   <!-- <record id="productos_turisana_kanban_view" model="ir.ui.view">
+        <field name="name">productos.turisana.kanban</field>
+        <field name="model">productos.turisana</field>
+        <field name="arch" type="xml">
+
+<kanban>
+    <field name='id'/>
+    <field name="name"></field>
+    <field name="descripcion"></field>
+    <field name="imagen_producto"></field>
+    <field name="temporada"></field>
+	<templates>
+                <t t-name="kanban-box">
+			
+                        
+			<div class="oe_kanban_global_click">
+				
+                            
+				<div class="o_kanban_tags_section">
+					
+                    
+					<span class="oe_kanban_list_many2many">
+						
+                        
+						<div name="tag_ids" can_create="true" can_write="true" modifiers="{}" class=" oe_form_field o_form_field_many2manytags o_kanban_tags"/>
+						
+                    
+					</span>
+					
+                
+				</div>
+				             
+				<div class="oe_kanban_details">
+                
+                                    
+                        <strong>        
+                            <t name="name"/>
+                            
+                                    
+                        </strong>
+                                                
+                        
+                                    
+                        <ul style='text-align:center'>
+                            
+                                        
+                            <li>
+                            
+                            <h1><strong><font color="red"><field name="name"/></font></strong></h1>
+                            <br></br>
+                            <br></br>
+                            
+                            </li>
+                        </ul>
+                        <ul style='text-align:center'>
+                            
+                                        
+                            <li>
+                            <t t-if="record.image.raw_value">
+                            <img t-att-src="kanban_image('productos.turisana', 'imagen_producto', record.id.value)"/>
+                            </t>
+                            <br></br>
+                            <br></br>
+                            
+                            </li>
+                        </ul>
+                        <ul style='text-align:center'>
+                            
+                                        
+                            <li>
+
+                            <h2><strong>Nombre</strong></h2>
+                                <field name="name"/>
+                            </li>
+                        </ul>
+                        <ul style='text-align:center'>
+                            
+                                        
+                            <li>
+                                <h2><strong>Descripcion</strong></h2>
+                                <field name="descripcion"/>
+                            </li>
+                        </ul>
+                        <ul style='text-align:center'>
+                            
+                                        
+                            <li>
+                                <field name="imagen_producto"/>
+                            </li>
+                        </ul>
+                        <ul style='text-align:center'>
+                            
+                                        
+                            <li>
+                                <h2><strong>Temporada</strong></h2>
+                                <field name="temporada"/>
+                            </li>
+                        </ul>
+				</div>
+				
+                        
+			</div>
+			
+                    
+		</t>
+		
+                
+	</templates>
+	
+            
+</kanban>
+</field>
+</record>--> 
+        <record model="ir.ui.view" id="productos_list">
+        <field name="name">productos.turisana.list</field>
+        <field name="model">productos.turisana</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"></field>
+                        <field name="descripcion"></field>
+                        <field name="temporada"></field>
+                        <field name="imagen_producto"></field>
+                        <field name="fecha_inicio"></field>
+                        <field name="fecha_fin"></field>
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_import_turisana">
+        <field name="name">La Turisana</field>
+        <field name="res_model">productos.turisana</field>
+        <field name="view_mode">kanban,tree,form</field>
+    </record>  
+   <menuitem id="menu_root_turisana" name="La_Turisana" sequence="30" />
+   <menuitem id="menu_turisana" name="productos.turisana" parent="menu_root_turisana" sequence="20" action="action_import_turisana"/>
+</data>
+</odoo>
